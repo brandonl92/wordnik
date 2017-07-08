@@ -40,7 +40,24 @@ class Api {
    })
  }
 
- 
+
+// the 'phrase' function to lookup phrases of a word
+// http://api.wordnik.com:80/v4/word.json/test/phrases?limit=5&wlmi=0&useCanonical=false&api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5
+
+phrases(word){
+  let queryParams = 'phrases?limit=5&wlmi=0&useCanonical=false&api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5';
+  let url = `${HOSTNAME}${endpoint}/${word}/${queryParams}`;
+
+
+  fetch(url).then(function(response) {
+    return response.json();
+  }).then(function(json) {
+    console.log(json);
+  })
+
+}
+
+
 
 }
 
